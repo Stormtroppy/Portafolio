@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap");
+
+html {
+  background-color: #111827;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vh 5vw;
+}
+
+/* Default Navigation Styles (for Desktop first) */
+nav.main-nav {
+  position: static; /* Removes absolute positioning */
+  width: auto; /* Resets width */
+  height: auto; /* Resets height */
+  background-color: transparent; /* No background color */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+  transform: translateX(0); /* Ensure it's not translated off-screen */
+  transition: none; /* No transition on desktop */
+}
+
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  flex-direction: row;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Button Styling for Navigation Links --- */
+nav.main-nav ul li a {
+  display: inline-block; /* Allows applying padding and height/width */
+  background-color: #1b253b; /* Button background color */
+  color: white; /* Text color */
+  padding: 0.7rem 1.5rem; /* Vertical and horizontal padding */
+  border-radius: 20px; /* Slightly rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-weight: bold; /* Make text bolder */
+  border: 1px solid #0d255a; /* A subtle border matching the background */
+}
+
+/* Optional: Hover effect for buttons */
+nav.main-nav ul li a:hover {
+  background-color: #113686; /* Darker green on hover */
+  border-color: #0d255a;
+}
+
+/* Also remove the default paragraph styling within the list item link if it's there */
+nav.main-nav ul li a p {
+  margin: 0; /* Remove default paragraph margin */
+  padding: 0; /* Remove default paragraph padding */
+}
+
+/* Adjust the list item to not interfere with button spacing */
+nav.main-nav ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide burger menu by default on desktop */
+.burger-menu {
+  display: none;
+}
+
+/* Burger menu line styles (outside media query as they are common) */
+.burger-menu::before,
+.burger-menu::after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+}
+
+.burger-menu::before {
+  top: 0;
+}
+
+.burger-menu span {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  top: 9px;
+  height: 2px;
+}
+
+.burger-menu::after {
+  bottom: 0;
+}
+
+main {
+  padding: 0 10vw; /* Percentage for horizontal padding */
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Keeps space between burger (if visible) and nav */
+  align-items: center;
+  padding: 3vh 5vw;
+}
+
+#sub-heading {
+  color: #2cb67d;
+}
+
+#home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  flex-shrink: 1;
+  gap: 15rem;
+  padding: 2rem 0;
+}
+
+#coder {
+  width: auto;
+  height: auto;
+  max-width: 600px;
+}
+
+#Projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Original: 2 columns */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.project {
+  background-color: grey;
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center; /* Center content within the project box */
+}
+
+/* --- Ensure images within projects are responsive --- */
+.project img {
+  max-width: 100%; /* Image will not exceed the width of its parent (.project) */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space below image */
+  margin-bottom: 0.5rem; /* Space between image and text */
+}
+
+#Skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Original: 4 columns */
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.skill {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+/* --- Ensure images within skills are responsive and smaller --- */
+.skill img {
+  max-width: 40px; /* Set a maximum width for skill icons */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space below image */
+}
+
+#contact-row {
+  display: flex;
+}
+
+/* Media Query for Mobile (applies when screen is between 320px and 700px) */
+@media (max-width: 1000px) {
+  /* Simplified range for mobile */
+
+  /* Show the burger menu on mobile */
+  .burger-menu {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  /* Mobile Navigation Styles (Hidden by Default) */
+  nav.main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    height: 100vh;
+    background-color: #111827;
+    border-left: 1px solid #fff;
+    padding: 20px 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Mobile Navigation Active State (Visible) */
+  nav.main-nav.active {
+    transform: translateX(0);
+  }
+
+  nav.main-nav ul {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px;
+    gap: 20px;
+  }
+
+  /* Burger Menu Active State (for X icon) */
+  .burger-menu.active {
+    z-index: 101;
+  }
+
+  .burger-menu.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .burger-menu.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+  .burger-menu.active span {
+    transform: scale(0);
+  }
+  main {
+    padding: 0 1rem; /* Reduced padding for mobile */
+  }
+
+  #home {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #coder {
+    max-width: 80%;
+  }
+
+  /* --- Mobile-specific adjustments for grids --- */
+  #Projects-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+  }
+
+  #Skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 0.8rem;
+  }
+
+  .skill {
+    padding: 0.5rem; /* Even smaller padding for skills on mobile */
+  }
+
+  .skill img {
+    max-width: 30px; /* Even smaller skill icons on mobile */
+  }
+}
