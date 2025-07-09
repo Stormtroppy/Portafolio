@@ -37,6 +37,10 @@ nav.main-nav ul {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* --- Button Styling for Navigation Links --- */
 nav.main-nav ul li a {
   display: inline-block; /* Allows applying padding and height/width */
@@ -44,7 +48,6 @@ nav.main-nav ul li a {
   color: white; /* Text color */
   padding: 0.7rem 1.5rem; /* Vertical and horizontal padding */
   border-radius: 20px; /* Slightly rounded corners */
-  text-decoration: none; /* Remove underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
   font-weight: bold; /* Make text bolder */
   border: 1px solid #0d255a; /* A subtle border matching the background */
@@ -112,6 +115,10 @@ header {
 
 #sub-heading {
   color: #2cb67d;
+}
+
+.heading {
+  text-align: center;
 }
 
 #home {
@@ -189,6 +196,13 @@ header {
 
 #contact-row {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fa-2xl:hover {
+  cursor: pointer;
 }
 
 /* Media Query for Mobile (applies when screen is between 320px and 700px) */
